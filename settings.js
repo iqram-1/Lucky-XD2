@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const path = require('path');
 const { getConfig } = require('./lib/configdb');
@@ -15,9 +14,9 @@ function convertToBool(text, trueValue = 'true') {
 
 module.exports = {
   // ===== BOT CORE SETTINGS =====
-  SESSION_ID: settings.SESSION_ID || process.env.SESSION_ID || "starcore~eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoidURDcUxkOWpvYnh1VFlsZlNOeU5aayswME9Lc0lWYmlpdjliQUxOdjlFVT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoibnZtNmV1aUJ3b0hacFFFR3BSV0RHZUtYdXl0UnA2Z1U0SlVmN3NjenNSOD0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJlQ2g3VWdLZkxSOVVINlR4Ulgvbkd2SzllbE5KMW5xUE1FWWs0TkJMSG00PSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiIwYmhWNktFRTYxYnVuRXZoSThjL0YwbllBRW9WNWd4YUl5OUhWWWc1WHowPSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IndBODhDaXFDaW44VmUyK29EajNwc1hBaVVBdWFZK1BQTklwRksrR1Mza2M9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6ImRiL1lpbkpndXBxdnZvU29vVkd5bW0vZTl5Q2huL3hwTE4rUDFSSnJkaVE9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQUo4RFU4bThHYkNNaURXVE84UkxDa2NCOU1nS3NWNGNtWDRpT1A0bHkwVT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiKytsWWl4Z0x2R1IrV0pER0I3bnoxdVozWDdtVHRMUlRIaDZDanh6aGNSYz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6InVEaEkvT05yQkE0RnlDL2dkUk5nM2FCMXdYVmZFM2xXRk1ScjY3SGFGNHl6RHBSeXd6aVVKQ2o5RGR3Qk52Mm8zeVkzOVhPdU55eVY3aGt0UTdzdmhRPT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6MTE4LCJhZHZTZWNyZXRLZXkiOiJIK0hVUlk3bk5Cb1pWUGNOTUVpVWVuNVRtNkdhN0l4dFFFZ2Y3Rk1rZUNvPSIsInByb2Nlc3NlZEhpc3RvcnlNZXNzYWdlcyI6W10sIm5leHRQcmVLZXlJZCI6MzEsImZpcnN0VW51cGxvYWRlZFByZUtleUlkIjozMSwiYWNjb3VudFN5bmNDb3VudGVyIjowLCJhY2NvdW50U2V0dGluZ3MiOnsidW5hcmNoaXZlQ2hhdHMiOmZhbHNlfSwiZGV2aWNlSWQiOiI3SjdCOHVYTFFxcVRYb3Vtcld0MkVnIiwicGhvbmVJZCI6ImNkNDdjNDlhLWQ0YzctNDlhNi04ZTY5LTZlZTEwNGJlM2E0MSIsImlkZW50aXR5SWQiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJWb0RQdEkvcEdLSFZGTUtzTklLeC9XeDNpY1E9In0sInJlZ2lzdGVyZWQiOnRydWUsImJhY2t1cFRva2VuIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiRTdlZVV6Sm5wQlBVdGY3RnluOWE3OENleEpBPSJ9LCJyZWdpc3RyYXRpb24iOnt9LCJwYWlyaW5nQ29kZSI6Ik1STUFMVklOIiwibWUiOnsiaWQiOiIyMzM1MzUzNjM2OTE6OUBzLndoYXRzYXBwLm5ldCIsIm5hbWUiOiLwnZCI8J2QkPCdkJHwnZCA8J2QjCIsImxpZCI6IjE0NDE2MTEzMDk1ODkxNTo5QGxpZCJ9LCJhY2NvdW50Ijp7ImRldGFpbHMiOiJDTW5IdHAwR0VLckZrc3dHR0FRZ0FDZ0EiLCJhY2NvdW50U2lnbmF0dXJlS2V5IjoiSi9OZWlXT3gyZElhdFpUNzRpYTBGaStGeTc3QktaMUZhMDNHMW9PbkpnUT0iLCJhY2NvdW50U2lnbmF0dXJlIjoic0p4R0cvY2ZleE1NSUxyMUlsVU9hazZvL3ZHcitGZWxMTkI2QVJzRVZ1TEUzNloyNmJIU0dSQ05iUUJhbmRacCtabjJNVFBWWEZlZFBzY1lBR0EyQ3c9PSIsImRldmljZVNpZ25hdHVyZSI6IkdLSVdmMTJzSjg4bFlGTVJWUU1rSmlLb00rRlFsZHpUcldCRHBnaTVoSVEwZFdoY1VMUUF1VG1YUDFFalRVTmhDZ2ViTlVkN1ZOS3J4QlZZZ2JnbWpnPT0ifSwic2lnbmFsSWRlbnRpdGllcyI6W3siaWRlbnRpZmllciI6eyJuYW1lIjoiMjMzNTM1MzYzNjkxOjlAcy53aGF0c2FwcC5uZXQiLCJkZXZpY2VJZCI6MH0sImlkZW50aWZpZXJLZXkiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJCU2Z6WG9sanNkblNHcldVKytJbXRCWXZoY3Urd1NtZFJXdE54dGFEcHlZRSJ9fV0sInBsYXRmb3JtIjoic21iaSIsInJvdXRpbmdJbmZvIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQ0FnSUFnZ0YifSwibGFzdEFjY291bnRTeW5jVGltZXN0YW1wIjoxNzcwMzAwMDg5LCJteUFwcFN0YXRlS2V5SWQiOiJBQUFBQUFlZCJ9",
-  PREFIX: getConfig("PREFIX") || "." || settings.PREFIX,
-  CHATBOT: getConfig("CHATBOT") || "on",
+  SESSION_ID: process.env.SESSION_ID || settings.SESSION_ID || "starcore~eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoidURDcUxkOWpvYnh1VFlsZlNOeU5aayswME9Lc0lWYmlpdjliQUxOdjlFVT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoibnZtNmV1aUJ3b0hacFFFR3BSV0RHZUtYdXl0UnA2Z1U0SlVmN3NjenNSOD0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJlQ2g3VWdLZkxSOVVINlR4Ulgvbkd2SzllbE5KMW5xUE1FWWs0TkJMSG00PSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiIwYmhWNktFRTYxYnVuRXZoSThjL0YwbllBRW9WNWd4YUl5OUhWWWc1WHowPSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IndBODhDaXFDaW44VmUyK29EajNwc1hBaVVBdWFZK1BQTklwRksrR1Mza2M9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6ImRiL1lpbkpndXBxdnZvU29vVkd5bW0vZTl5Q2huL3hwTE4rUDFSSnJkaVE9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQUo4RFU4bThHYkNNaURXVE84UkxDa2NCOU1nS3NWNGNtWDRpT1A0bHkwVT0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiKytsWWl4Z0x2R1IrV0pER0I3bnoxdVozWDdtVHRMUlRIaDZDanh6aGNSYz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6InVEaEkvT05yQkE0RnlDL2dkUk5nM2FCMXdYVmZFM2xXRk1ScjY3SGFGNHl6RHBSeXd6aVVKQ2o5RGR3Qk52Mm8zeVkzOVhPdU55eVY3aGt0UTdzdmhRPT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6MTE4LCJhZHZTZWNyZXRLZXkiOiJIK0hVUlk3bk5Cb1pWUGNOTUVpVWVuNVRtNkdhN0l4dFFFZ2Y3Rk1rZUNvPSIsInByb2Nlc3NlZEhpc3RvcnlNZXNzYWdlcyI6W10sIm5leHRQcmVLZXlJZCI6MzEsImZpcnN0VW51cGxvYWRlZFByZUtleUlkIjozMSwiYWNjb3VudFN5bmNDb3VudGVyIjowLCJhY2NvdW50U2V0dGluZ3MiOnsidW5hcmNoaXZlQ2hhdHMiOmZhbHNlfSwiZGV2aWNlSWQiOiI3SjdCOHVYTFFxcVRYb3Vtcld0MkVnIiwicGhvbmVJZCI6ImNkNDdjNDlhLWQ0YzctNDlhNi04ZTY5LTZlZTEwNGJlM2E0MSIsImlkZW50aXR5SWQiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJWb0RQdEkvcEdLSFZGTUtzTklLeC9XeDNpY1E9In0sInJlZ2lzdGVyZWQiOnRydWUsImJhY2t1cFRva2VuIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiRTdlZVV6Sm5wQlBVdGY3RnluOWE3OENleEpBPSJ9LCJyZWdpc3RyYXRpb24iOnt9LCJwYWlyaW5nQ29kZSI6Ik1STUFMVklOIiwibWUiOnsiaWQiOiIyMzM1MzUzNjM2OTE6OUBzLndoYXRzYXBwLm5ldCIsIm5hbWUiOiLwnZCI8J2QkPCdkJHwnZCA8J2QjCIsImxpZCI6IjE0NDE2MTEzMDk1ODkxNTo5QGxpZCJ9LCJhY2NvdW50Ijp7ImRldGFpbHMiOiJDTW5IdHAwR0VLckZrc3dHR0FRZ0FDZ0EiLCJhY2NvdW50U2lnbmF0dXJlS2V5IjoiSi9OZWlXT3gyZElhdFpUNzRpYTBGaStGeTc3QktaMUZhMDNHMW9PbkpnUT0iLCJhY2NvdW50U2lnbmF0dXJlIjoic0p4R0cvY2ZleE1NSUxyMUlsVU9hazZvL3ZHcitGZWxMTkI2QVJzRVZ1TEUzNloyNmJIU0dSQ05iUUJhbmRacCtabjJNVFBWWEZlZFBzY1lBR0EyQ3c9PSIsImRldmljZVNpZ25hdHVyZSI6IkdLSVdmMTJzSjg4bFlGTVJWUU1rSmlLb00rRlFsZHpUcldCRHBnaTVoSVEwZFdoY1VMUUF1VG1YUDFFalRVTmhDZ2ViTlVkN1ZOS3J4QlZZZ2JnbWpnPT0ifSwic2lnbmFsSWRlbnRpdGllcyI6W3siaWRlbnRpZmllciI6eyJuYW1lIjoiMjMzNTM1MzYzNjkxOjlAcy53aGF0c2FwcC5uZXQiLCJkZXZpY2VJZCI6MH0sImlkZW50aWZpZXJLZXkiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJCU2Z6WG9sanNkblNHcldVKytJbXRCWXZoY3Urd1NtZFJXdE54dGFEcHlZRSJ9fV0sInBsYXRmb3JtIjoic21iaSIsInJvdXRpbmdJbmZvIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQ0FnSUFnZ0YifSwibGFzdEFjY291bnRTeW5jVGltZXN0YW1wIjoxNzcwMzAwMDg5LCJteUFwcFN0YXRlS2V5SWQiOiJBQUFBQUFlZCJ9",
+  PREFIX: getConfig("PREFIX") || process.env.PREFIX || settings.PREFIX || ".",
+  CHATBOT: getConfig("CHATBOT") || "off",
   BOT_NAME: process.env.BOT_NAME || getConfig("BOT_NAME") || "Lucky-XD",
   MODE: getConfig("MODE") || process.env.MODE || "public",
   REPO: process.env.REPO || "https://github.com/Tomilucky218/Lucky-XD2",
@@ -29,7 +28,7 @@ module.exports = {
   DEV: process.env.DEV || "256789966218",
   DEVELOPER_NUMBER: '256789966218@s.whatsapp.net',
   MENU_AUDIO_URL: process.env.MENU_AUDIO_URL || 'https://files.catbox.moe/3v5i11.mp3',
-NEWSLETTER_JID: process.env.NEWSLETTER_JID || '120363420656466131@newsletter',
+  NEWSLETTER_JID: process.env.NEWSLETTER_JID || '120363420656466131@newsletter',
 
   // ===== AUTO-RESPONSE SETTINGS =====
   AUTO_REPLY: process.env.AUTO_REPLY || "false",
@@ -80,19 +79,20 @@ NEWSLETTER_JID: process.env.NEWSLETTER_JID || '120363420656466131@newsletter',
 
   // ===== CATEGORY-SPECIFIC IMAGE URLs =====
   MENU_IMAGES: {
-    '1': process.env.DOWNLOAD_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg", // Download Menu
-    '2': process.env.GROUP_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",   // Group Menu
-    '3': process.env.FUN_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",       // Fun Menu
-    '4': process.env.OWNER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",   // Owner Menu
-    '5': process.env.AI_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",         // AI Menu
-    '6': process.env.ANIME_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",   // Anime Menu
-    '7': process.env.CONVERT_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg", // Convert Menu
-    '8': process.env.OTHER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",   // Other Menu
-    '9': process.env.REACTION_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg", // Reaction Menu
-    '10': process.env.MAIN_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",    // Main Menu
-    '11': process.env.LOGO_MAKER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg", // Logo Maker Menu
-    '12': process.env.SETTINGS_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg", // Settings Menu
-    '13': process.env.AUDIO_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",  // Audio Menu
-    '14': process.env.PRIVACY_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg" // Privacy Menu
+    '1': process.env.DOWNLOAD_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '2': process.env.GROUP_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '3': process.env.FUN_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '4': process.env.OWNER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '5': process.env.AI_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '6': process.env.ANIME_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '7': process.env.CONVERT_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '8': process.env.OTHER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '9': process.env.REACTION_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '10': process.env.MAIN_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '11': process.env.LOGO_MAKER_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '12': process.env.SETTINGS_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '13': process.env.AUDIO_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg",
+    '14': process.env.PRIVACY_MENU_IMAGE || "https://files.catbox.moe/4itzeu.jpg"
   }
 };
+
